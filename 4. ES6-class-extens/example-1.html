@@ -2,9 +2,71 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Document</title>
+    
 </head>
 <body>
+    
+    <script>
+        class Product {
+            constructor({name, brand, price}){
+                this.name = name;
+                this.brand = brand;
+                this._price = price;
+            }
 
+            getId(){
+
+            }
+
+            calcDelivery(){
+                return this._price * 0.01;
+            }
+
+            get price(){
+                return this._price;
+            }
+
+            set price(value){
+                if(value > 0){
+                    this._price = value;
+                    return true;
+                }
+                return false;
+            }
+        }
+
+        class Notebook extends Product {
+            constructor({display, ...props}){
+                super(props); 
+                // конструктор родителя, вызванный через super,
+                // создает  this, который потом использует 
+                // конструктор дочернего класса
+                this.display = display;
+            }
+        }
+
+        class Phone extends Product {
+            constructor({battery, ...props}){
+                super(props); 
+                // конструктор родителя, вызванный через super,
+                // создает  this, который потом использует 
+                // конструктор дочернего класса
+                this.battery = battery;
+            }
+            
+            calcDelivery(){
+                return super.calcDelivery() + this._price * 0.02;
+            }
+        }
+
+
+
+        const notebook = new Notebook({ display: 15.6, name: "Lenovo", price: 12300, brand: "ThinkPad"});
+        console.log(notebook)
+        const phone = new Phone({battery: "5000 мА", name: "iPhone X", price: 34000, brand: "iPhone"});
+        console.log(phone)
+        console.log(phone.calcDelivery())
+    </script>
 </body>
 </html>

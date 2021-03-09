@@ -20,32 +20,31 @@
             }
         };
 
-        const notebook = {
-            price: 12245,
-            display: 15.6,
-        };
+        const notebook = Object.create(product);
+        console.log(notebook)
+        notebook.price =  12245;
+        notebook.display = 15.6;
 
-        notebook.__proto__ = product;
         console.log(notebook.shop);
         console.log(notebook.calcDelivery());
 
-        const phone = {
-            price: 12400,
-            battery: "4000мА",
-        };
+        // const phone = {
+        //     price: 12400,
+        //     battery: "4000мА",
+        // };
 
-        phone.__proto__ = product;
-        console.log(phone.shop);
-        console.log(phone.calcDelivery())
+        // phone.__proto__ = product;
+        // console.log(phone.shop);
+        // console.log(phone.calcDelivery())
 
-        const washMachine = {
-            price: 8400,
-            maxWeight: 5,
-        };
+        // const washMachine = {
+        //     price: 8400,
+        //     maxWeight: 5,
+        // };
 
-        washMachine.__proto__ = product;
-        console.log(washMachine.shop);
-        console.log(washMachine.calcDelivery())
+        // washMachine.__proto__ = product;
+        // console.log(washMachine.shop);
+        // console.log(washMachine.calcDelivery())
 
     </script>
 </body>

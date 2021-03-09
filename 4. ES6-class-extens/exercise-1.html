@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    class Employee {
+      constructor({name, lastName, sallary}){
+        this.name = name;
+        this.lastName = lastName;
+        this._sallary = sallary;
+      }
+
+      get sallary(){
+        return this._sallary;
+      }
+
+      set sallary(value){
+        if(value > 5600){
+          this._sallary = value;
+          return true;
+        }
+        return false;
+      }
+    }
+
+    class Manager extends Employee {
+      constructor({workers, ...props}){
+        super(props);
+        this.workers = [...workers];
+      }
+
+      getWorker(){
+
+      }
+
+      addWorker(newWorker){
+
+      }
+
+      removeWorker(workerName){
+
+      }
+    }
+
+    const managerWorkers = ["Олег", "Александр", "Мария", "Вика"];
+
+    const manager1 = new Manager({name: "Виктор", lastName: "Шендерович", sallary: 27000, workers: managerWorkers});
+    console.log(manager1)
+    managerWorkers.pop()
+    console.log(manager1)
+  </script>
+</body>
+</html>

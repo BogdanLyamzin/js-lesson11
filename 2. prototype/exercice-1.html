@@ -11,7 +11,31 @@
     вынеся необходимые методы в прототипы -->
     <script>
 
+        const Product = function({name, brand, price}){
+            this.name = name;
+            this.brand = brand;
+            this.price = price;
+        };
 
+        Product.shop = "Rozetka";
+
+        Product.sort = function(productArr){
+
+        };
+
+        Product.prototype.calcDelivery = function(){
+            return this.price * 0.01;
+        };
+
+        Product.prototype.getDiscountPrice = function(value){
+            return this.price * (1 - value/100);
+        };
+
+        const phone = new Product({name: "iPhone X", brand: "iPhone", price: 45000});
+        console.log(phone.calcDelivery());
+        console.log(phone.getDiscountPrice(10));
+        // console.log(phone.values(phone));
+        console.log(Object.values(phone));
     </script>
 </body>
 </html>

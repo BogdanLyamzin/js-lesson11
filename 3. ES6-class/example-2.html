@@ -8,18 +8,25 @@
     <script>
         
         class Employee {
+
+            static workTime = "10:00 - 22:00";
+
             constructor({organization, name, status}){
                 this.organization = organization;
                 this.name = name;
                 this.status = status;
             }
 
+            static getMostValuableEmployee = function(...employees){
+
+            };
+
             checkPass(){
                 return true;
             }
 
             getAge(){
-                
+                console.log(this.workTime)
             }
         }
 
@@ -28,8 +35,9 @@
             name: "Kristina",
             status: "receptionGirl",
         });
-        console.log(employee1);
-        console.log(employee1.checkPass())
+        // console.log(Employee.workTime);
+        employee1.getAge();
+        
     </script>
 </body>
 </html>

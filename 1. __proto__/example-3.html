@@ -9,12 +9,13 @@
 <body>
     <script>
 
-        /* __proto__ - другой объект, в котором нужно искать свойства и методы,
-               если их нет в этом */
+        /* __proto__ - другой объект, в котором нужно искать 
+        свойства и методы,  если их нет в этом */
 
         const basicEmployee = {
-            organization: "GoIT",
-        }
+            // __proto__ = Object
+            organization: "GoIT Education",
+        };
 
         const employee1 = {
             // __proto__ = Object
@@ -31,42 +32,35 @@
          */
         console.log(employee1); // свойства organization у него по-прежнему нет
         console.log(employee1.organization);
+        console.log(employee1.hasOwnProperty("age"))
         // но он может его взять у объекта basicEmployee, потому что он его в его цепочке прототипов
 
         const employee2 = {
             // __proto__ = Object
-            organization: "GoIT",
             name: "Богдан",
             status: "teacher"
         };
 
-        console.log(employee1);
-        console.log(employee1.organization);
-        employee1.__proto__ = basicEmployee;
+        employee2.__proto__ = basicEmployee;
         /* переопределяем прототип для объекта employee1,
         теперь он в первую очередь будет искать свойства и методы,
         которых нет у него, в объекте basicEmployee
          */
-        console.log(employee1); // свойства organization у него по-прежнему нет
-        console.log(employee1.organization);
+        console.log(employee2.organization);
         // но он может его взять у объекта basicEmployee, потому что он его в его цепочке прототипов
 
         const employee3 = {
             // __proto__ = Object
-            organization: "GoIT",
             name: "Алексей",
             status: "mentor"
         };
 
-        console.log(employee1);
-        console.log(employee1.organization);
-        employee1.__proto__ = basicEmployee;
+        employee3.__proto__ = basicEmployee;
         /* переопределяем прототип для объекта employee1,
         теперь он в первую очередь будет искать свойства и методы,
         которых нет у него, в объекте basicEmployee
          */
-        console.log(employee1); // свойства organization у него по-прежнему нет
-        console.log(employee1.organization);
+       console.log(employee3.organization);
         // но он может его взять у объекта basicEmployee, потому что он его в его цепочке прототипов
 
 

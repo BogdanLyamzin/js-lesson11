@@ -3,12 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <style>
+        .product-card {
+            display: inline-block;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
+    <div class="product-card" id="product">
+
+    </div>
 <!--   Перепишите Упражнение 1 из задачи на Prototype на классы -->
     <script>
+        class Product {
+            constructor({name, brand, price}){
+                this.name = name;
+                this.brand = brand;
+                this._price = price;
+            }
 
+            calcDelivery(){
+                return this._price * 0.01;
+            }
 
+            get price(){
+                return this._price;
+            }
+
+            set price(value){
+                if(value > 0){
+                    this._price = value;
+                    return true;
+                }
+                return false;
+            }
+        }
+
+        const notebook = new Product({name: "Lenovo", price: 12300, brand: "ThinkPad"});
+        
+        // notebook.price = - 40;
+        // console.log(notebook.price)
+        // notebook.price = 11500;
+        // console.log(notebook.price)
+
+        const productContainer = document.getElementById("product");
+        productContainer.insertAdjacentHTML("beforeend", `<p>Name: ${notebook.name}`);
+        productContainer.insertAdjacentHTML("beforeend", `<p>Brand: ${notebook.brand}`);
+        productContainer.insertAdjacentHTML("beforeend", `<p>Price: ${notebook.price}`);
     </script>
 </body>
 </html>

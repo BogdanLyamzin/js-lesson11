@@ -5,6 +5,27 @@
     <title>Title</title>
 </head>
 <body>
+    <script>
+        const basicEmployee = {
+            // __proto__ = Object
+            organization: "GoIT Education",
+        }
+        
+        const employee1 = {
+            // __proto__ = Object
+            name: "Kristina",
+            status: "receptionGirl",
+        };
 
+        employee1.__proto__ = basicEmployee;
+
+        console.log(employee1.organization);
+        console.log(employee1.hasOwnProperty("organization"));
+
+        employee1.organization = "GoIT studio";
+        console.log(employee1.hasOwnProperty("organization"));
+        console.log(employee1.organization)
+        console.log(basicEmployee)
+    </script>
 </body>
 </html>

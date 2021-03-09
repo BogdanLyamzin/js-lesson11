@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        const basicEmployee = {
+            organization: "GoIT Education",
+        };
+
+        const employee1 = Object.create(basicEmployee);
+        /*
+        const employee1 = {};
+        employee1.__proto__ = basicEmployee;
+        */
+        employee1.name = "Kristina";
+        employee1.status = "receptionGirl"
+        console.log(employee1)
+        console.log(employee1.organization)
+
+        const employee2 = Object.create(basicEmployee)
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        
+        class Employee {
+            constructor({organization, name, status}){
+                this._organization = organization;
+                this._name = name;
+                this._status = status;
+            }
+
+            get name(){
+              return this._name;
+            }
+
+            set name(value){
+              if(value.length > 1){
+                this._name = value;
+                return true;
+              }
+              return false;
+            }
+
+        }
+
+        const employee1 = new Employee({
+            organization: "GoIT",
+            name: "Кристина",
+            status: "receptionGirl",
+        });
+
+        console.log(employee1.name)
+        employee1.name = "Анна"
+        console.log(employee1)
+        
+    </script>
+</body>
+</html>

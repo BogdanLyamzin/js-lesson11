@@ -8,6 +8,19 @@
     <title>Document</title>
 </head>
 <body>
+    <script>
+        const Product = function({name, price}){
+            this.name = name;
+            this.price = price;
+        };
 
+        Product.prototype.calcDelivery = function(){
+            return this.price * 0.01;
+        };
+
+        const notebook = new Product({name: "Lenovo X120S", price: 18600});
+        // notebook.__proto__ = Product.prototype;
+        console.log(notebook.calcDelivery());
+    </script>
 </body>
 </html>
